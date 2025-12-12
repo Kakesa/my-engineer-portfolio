@@ -20,12 +20,12 @@ const projects = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
   },
   {
-    title: "Application Mobile",
-    description: "Application mobile cross-platform pour la gestion de tâches et productivité.",
-    technologies: ["React Native", "Redux", "Node.js", "PostgreSQL"],
+    title: "Park Mafraland",
+    description: "Site pour Mafraland",
+    technologies: ["React", "Tailwind", "Node.js", "PostgreSQL"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/espoir-kakesa",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop"
+    image: "/src/assets/mafraland.png"
   },
   {
     title: "API RESTful",
