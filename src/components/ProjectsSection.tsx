@@ -21,11 +21,11 @@ const projects = [
   },
   {
     title: "Park Mafraland",
-    description: "Site pour Mafraland",
-    technologies: ["React", "Tailwind", "Node.js", "PostgreSQL"],
-    liveUrl: "https://example.com",
+    description: "Mafraland est un site vitrine captivant dédié à un restaurant familial, offrant une expérience culinaire délicieuse dans un cadre convivial. Les enfants peuvent également s'amuser dans notre espace de jeux et se rafraîchir dans nos piscines, garantissant des moments de joie pour toute la famille.",
+    technologies: ["React", "Tailwind CSS", "Vite", "TypeScript", "Node.js"],
+    liveUrl: "https://mafraland-space.netlify.app",
     githubUrl: "https://github.com/espoir-kakesa",
-    image: "/src/assets/mafraland.png"
+    image: "/src/assets/projects/mafraland.png"
   },
   {
     title: "API RESTful",
