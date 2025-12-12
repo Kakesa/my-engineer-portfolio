@@ -9,7 +9,7 @@ const skillCategories = [
   {
     title: "Frameworks & Bibliothèques",
     icon: Layout,
-    skills: ["Laravel", "Node.js", "Express", "Adonis", "Angular", "Vue.js"],
+    skills: ["Laravel", "Node.js", "Express", "Adonis", "Angular", "React", "Vue.js"],
   },
   {
     title: "CSS & Design",
