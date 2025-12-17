@@ -35,7 +35,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="text-xl font-bold">
-            <span className="gradient-text">EK</span>
+            <span className="gradient-text">Espoir K.</span>
             <span className="text-muted-foreground">.</span>
           </a>
 
