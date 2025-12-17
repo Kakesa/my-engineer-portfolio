@@ -33,6 +33,14 @@ const education = [
     type: "Bac + 3",
     current: false,
   },
+  {
+    title: "Obtention diplôme d'État en Pedagogie Générale",
+    institution: "Lycée Kufita",
+    location: "Gungu",
+    period: "Septembre 2017",
+    type: "Bac ",
+    current: false,
+  },
 ];
 
 const EducationSection = () => {

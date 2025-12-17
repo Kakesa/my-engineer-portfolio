@@ -1,39 +1,40 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import mafraPro from "@/assets/projects/mafraland.png";
+import esengoPro from "@/assets/projects/esengo.png";
+import careerApp from "@/assets/projects/careerstart.png";
+import kinEvents from "@/assets/projects/kin-events.png";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "Plateforme de commerce en ligne complète avec panier, paiement et gestion des commandes.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    liveUrl: "https://example.com",
+    title: "Esengo Fondation Website",
+    description: "Site web pour une organisation à but non lucratif dédiée à l'autonomisation des communautés locales.",
+     technologies: ["React", "Tailwind CSS", "Vite", "TypeScript", "Node.js"],
+    liveUrl: "https://esengofondation.netlify.app",
     githubUrl: "https://github.com/espoir-kakesa",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
+    image: esengoPro
   },
   {
-    title: "Dashboard Analytics",
-    description: "Tableau de bord interactif pour visualiser et analyser les données en temps réel.",
-    technologies: ["Vue.js", "D3.js", "Firebase", "Tailwind CSS"],
+    title: "Career App web",
+    description: "Application web de gestion de carrière permettant aux utilisateurs de suivre leurs objectifs professionnels, de gérer leurs compétences et de planifier leur développement de carrière.",
+    technologies: ["HTML", "Tailwind CSS","MySQL", "Laravel",],
     liveUrl: "https://example.com",
-    githubUrl: "https://github.com/espoir-kakesa",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
+    image: careerApp
   },
   {
     title: "Park Mafraland",
     description: "Mafraland est un site vitrine captivant dédié à un restaurant familial, offrant une expérience culinaire délicieuse dans un cadre convivial. Les enfants peuvent également s'amuser dans notre espace de jeux et se rafraîchir dans nos piscines, garantissant des moments de joie pour toute la famille.",
     technologies: ["React", "Tailwind CSS", "Vite", "TypeScript", "Node.js"],
     liveUrl: "https://mafraland-space.netlify.app",
-    githubUrl: "https://github.com/espoir-kakesa",
-    image: "/src/assets/projects/mafraland.png"
+    image: mafraPro
   },
   {
-    title: "API RESTful",
+    title: "Kin Events",
     description: "API robuste et sécurisée pour la gestion d'authentification et ressources.",
-    technologies: ["Node.js", "Express", "JWT", "MongoDB"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/espoir-kakesa",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop"
+    technologies: ["HTML", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
+    liveUrl: "https://kinevents.fr",
+    image: kinEvents
   }
 ];
 
@@ -46,7 +47,7 @@ const ProjectsSection = () => {
             Mes <span className="text-primary">Réalisations</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Découvrez quelques-uns de mes projets récents. Cliquez pour visiter ou voir le code source.
+            Découvrez quelques-uns de mes projets récents. Cliquez pour visiter.
           </p>
         </div>
 
@@ -72,15 +73,7 @@ const ProjectsSection = () => {
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Visiter
                   </Button>
-                  <Button 
-                    size="sm" 
-                    variant="outline"
-                    className="border-border bg-background/80"
-                    onClick={() => window.open(project.githubUrl, '_blank')}
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
+                  
                 </div>
               </div>
               <CardContent className="p-6">
