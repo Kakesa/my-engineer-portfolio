@@ -41,13 +41,11 @@ const HeroSection = () => {
             </h1>
 
             <h2 className="opacity-0 animate-slide-up stagger-2 text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-6">
-              Développeur Full Stack
+              Software Engineer | Développeur Full Stack
             </h2>
 
             <p className="opacity-0 animate-slide-up stagger-3 text-muted-foreground max-w-xl mb-8 leading-relaxed">
-              Passionné par la création d'applications intuitives et performantes. 
-              Je maîtrise divers langages et frameworks pour fournir des solutions 
-              innovantes qui répondent aux besoins des utilisateurs.
+              Passionné par la création de solutions numériques innovantes, je conçois et développe des applications web performantes et intuitives. Mon expertise couvre l'ensemble du stack technologique, garantissant des expériences utilisateur exceptionnelles.
             </p>
 
             {/* Contact Info */}
