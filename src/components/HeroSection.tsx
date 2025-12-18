@@ -69,7 +69,7 @@ const HeroSection = () => {
             {/* CTA Buttons */}
             <div className="opacity-0 animate-slide-up stagger-5 flex flex-wrap justify-center lg:justify-start gap-4">
               <Button variant="hero" size="lg" asChild>
-                <a href="/CV_Espoir_Kakesa.pdf" download>
+                <a href="/Espoir_Kakesa.pdf" download>
                   <Download className="w-5 h-5" />
                   Télécharger CV
                 </a>

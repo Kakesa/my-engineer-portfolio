@@ -2,7 +2,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import mafraPro from "@/assets/projects/mafraland.png";
-import esengoPro from "@/assets/projects/esengo.png";
+import esengoPro from "@/assets/projects/home.png";
 import careerApp from "@/assets/projects/careerstart.png";
 import kinEvents from "@/assets/projects/kin-events.png";
 
