@@ -9,7 +9,7 @@ import kinEvents from "@/assets/projects/kin-events.png";
 const projects = [
   {
     title: "Esengo Foundation ONG Website",
-    description: "Site web vitrine pour une organisation non gouvernementale (ONG) dédiée à la promotion de l'éducation et du développement communautaire en République Démocratique du Congo.",
+    description: "Esengo Foundation est une ONG dédiée à lutter contre la malnutrition infantile et à offrir un avenir meilleur aux enfants vulnérables.",
      technologies: ["React", "Tailwind CSS", "Vite", "TypeScript", "Node.js"],
     liveUrl: "https://esengofondation.netlify.app",
     image: esengoPros
