@@ -11,7 +11,7 @@ const projects = [
     title: "Esengo Foundation ONG Website",
     description: "Esengo Foundation est une ONG dédiée à lutter contre la malnutrition infantile et à offrir un avenir meilleur aux enfants vulnérables.",
      technologies: ["React", "Tailwind CSS", "Vite", "TypeScript", "Node.js"],
-    liveUrl: "https://esengofoundation.netlify.app",
+    liveUrl: "https://esengofoundation.vercel.app",
     image: esengoPros
   },
   {
@@ -25,7 +25,7 @@ const projects = [
     title: "Park Mafraland",
     description: "Mafraland est un site vitrine captivant dédié à un restaurant familial, offrant une expérience culinaire délicieuse dans un cadre convivial. Les enfants peuvent également s'amuser dans notre espace de jeux et se rafraîchir dans nos piscines, garantissant des moments de joie pour toute la famille.",
     technologies: ["React", "Tailwind CSS", "Vite", "TypeScript", "Node.js"],
-    liveUrl: "https://mafraland-space.netlify.app",
+    liveUrl: "https://mafralandparc.vercel.app",
     image: mafraPro
   },
   {
