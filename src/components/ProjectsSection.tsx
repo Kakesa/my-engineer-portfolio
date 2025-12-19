@@ -11,7 +11,7 @@ const projects = [
     title: "Esengo Foundation ONG Website",
     description: "Esengo Foundation est une ONG dédiée à lutter contre la malnutrition infantile et à offrir un avenir meilleur aux enfants vulnérables.",
      technologies: ["React", "Tailwind CSS", "Vite", "TypeScript", "Node.js"],
-    liveUrl: "https://esengofondation.netlify.app",
+    liveUrl: "https://esengofoundation.netlify.app",
     image: esengoPros
   },
   {
