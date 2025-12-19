@@ -2,7 +2,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import mafraPro from "@/assets/projects/mafraland.png";
-import esengoPro from "@/assets/projects/home.png";
+import esengoPros from "@/assets/projects/home.png";
 import careerApp from "@/assets/projects/careerstart.png";
 import kinEvents from "@/assets/projects/kin-events.png";
 
@@ -12,7 +12,7 @@ const projects = [
     description: "Site web vitrine pour une organisation non gouvernementale (ONG) dédiée à la promotion de l'éducation et du développement communautaire en République Démocratique du Congo.",
      technologies: ["React", "Tailwind CSS", "Vite", "TypeScript", "Node.js"],
     liveUrl: "https://esengofondation.netlify.app",
-    image: esengoPro
+    image: esengoPros
   },
   {
     title: "Career App web",
