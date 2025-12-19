@@ -81,16 +81,9 @@ const HeroSection = () => {
 
             {/* Social Links */}
             <div className="opacity-0 animate-fade-in stagger-5 flex justify-center lg:justify-start gap-4 mt-8">
+              
               <a
-                href="https://github.com/Kakesa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-full bg-secondary hover:bg-primary/20 hover:text-primary transition-all duration-300 hover:scale-110"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/espoir-kakesa-b9060124"
+                href="https://www.linkedin.com/in/espoir-kakesa-b90601244"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-secondary hover:bg-primary/20 hover:text-primary transition-all duration-300 hover:scale-110"
