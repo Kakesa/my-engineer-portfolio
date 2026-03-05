@@ -33,6 +33,38 @@ const projects = [
     liveUrl: "https://x-clone-demo.example.com",
     githubUrl: "https://github.com/espoir-kakesa/x-clone",
     image: xCloneImg
+  },
+  {
+    title: "Kin Events",
+    description: "Plateforme de gestion d'événements avec suivi des participants et des confirmations.",
+    technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    liveUrl: "https://kin-events-demo.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/kin-events",
+    image: kinEventsImg
+  },
+  {
+    title: "Mafraland",
+    description: "Projet innovant avec interface moderne et fonctionnalités avancées.",
+    technologies: ["React", "Tailwind CSS", "Node.js"],
+    liveUrl: "https://mafraland-demo.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/mafraland",
+    image: mafralandImg
+  },
+  {
+    title: "Maranata",
+    description: "Application web complète avec gestion de contenu et interface intuitive.",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://maranata-demo.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/maranata",
+    image: maranataImg
+  },
+  {
+    title: "CareerStart",
+    description: "Plateforme d'aide à l'insertion professionnelle et développement de carrière.",
+    technologies: ["React", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    liveUrl: "https://careerstart-demo.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/careerstart",
+    image: careerstartImg
   }
 ];
 
