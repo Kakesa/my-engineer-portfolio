@@ -1,39 +1,34 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import mafraPro from "@/assets/projects/mafraland.png";
-import esengoPros from "@/assets/projects/home.png";
-import careerApp from "@/assets/projects/careerstart.png";
-import kinEvents from "@/assets/projects/kin-events.png";
+import acadexImg from "@/assets/projects/acadex.png";
+import hkEventsImg from "@/assets/projects/hk-events.png";
+import xCloneImg from "@/assets/projects/home.png";
 
 const projects = [
   {
-    title: "Esengo Foundation ONG Website",
-    description: "Esengo Foundation est une ONG dédiée à lutter contre la malnutrition infantile et à offrir un avenir meilleur aux enfants vulnérables.",
-     technologies: ["React", "Tailwind CSS", "Vite", "TypeScript", "Node.js"],
-    liveUrl: "https://esengofoundation.vercel.app",
-    image: esengoPros
+    title: "Acadex",
+    description: "Plateforme complète de gestion d'établissement scolaire. Gérez facilement les élèves, professeurs, parents et personnel. Administrez les cours, les présences, les bulletins et bien plus en un seul endroit.",
+    technologies: ["React", "Tailwind CSS", "Node.js", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://acadex-demo.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/acadex",
+    image: acadexImg
   },
   {
-    title: "Career App web",
-    description: "Application web de gestion de carrière permettant aux utilisateurs de suivre leurs objectifs professionnels, de gérer leurs compétences et de planifier leur développement de carrière.",
-    technologies: ["HTML", "Tailwind CSS","MySQL", "Laravel",],
-    liveUrl: "https://example.com",
-    image: careerApp
+    title: "HK Events",
+    description: "Plateforme de gestion d'événements et suivi des invités. Créez des événements, gérez les invitations, suivez les confirmations et les déclinaisons. Un tableau de bord intuitif pour une gestion efficace.",
+    technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
+    liveUrl: "https://hk-events-demo.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/hk-events",
+    image: hkEventsImg
   },
   {
-    title: "Park Mafraland",
-    description: "Mafraland est un site vitrine captivant dédié à un restaurant familial, offrant une expérience culinaire délicieuse dans un cadre convivial. Les enfants peuvent également s'amuser dans notre espace de jeux et se rafraîchir dans nos piscines, garantissant des moments de joie pour toute la famille.",
-    technologies: ["React", "Tailwind CSS", "Vite", "TypeScript", "Node.js"],
-    liveUrl: "https://mafralandparc.vercel.app",
-    image: mafraPro
-  },
-  {
-    title: "Kin Events",
-    description: "API robuste et sécurisée pour la gestion d'authentification et ressources.",
-    technologies: ["HTML", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
-    liveUrl: "https://kinevents.fr",
-    image: kinEvents
+    title: "X Clone",
+    description: "Clone de la plateforme de réseautage social X (anciennement Twitter). Partagez vos pensées, interagissez avec d'autres utilisateurs et explorez un feed en temps réel.",
+    technologies: ["React", "Vite", "Firebase", "Tailwind CSS", "TypeScript"],
+    liveUrl: "https://x-clone-demo.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/x-clone",
+    image: xCloneImg
   }
 ];
 
