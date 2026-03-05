@@ -17,6 +17,7 @@ const education = [
     type: "Certification en Ligne",
     current: false,
   },
+  {
     title: "Formation Développeur Web Full Stack",
     institution: "Mudey",
     location: "Lyon (En ligne)",
