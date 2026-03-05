@@ -4,6 +4,10 @@ import { Button } from "@/components/ui/button";
 import acadexImg from "@/assets/projects/acadex.png";
 import hkEventsImg from "@/assets/projects/hk-events.png";
 import xCloneImg from "@/assets/projects/home.png";
+import kinEventsImg from "@/assets/projects/kin-events.png";
+import mafralandImg from "@/assets/projects/mafraland.png";
+import maranataImg from "@/assets/projects/maranata.png";
+import careerstartImg from "@/assets/projects/careerstart.png";
 
 const projects = [
   {
