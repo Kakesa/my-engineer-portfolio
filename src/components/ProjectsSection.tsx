@@ -4,6 +4,10 @@ import { Button } from "@/components/ui/button";
 import acadexImg from "@/assets/projects/acadex.png";
 import hkEventsImg from "@/assets/projects/hk-events.png";
 import xCloneImg from "@/assets/projects/home.png";
+import kinEventsImg from "@/assets/projects/kin-events.png";
+import mafralandImg from "@/assets/projects/mafraland.png";
+import maranataImg from "@/assets/projects/maranata.png";
+import careerstartImg from "@/assets/projects/careerstart.png";
 
 const projects = [
   {
@@ -29,6 +33,38 @@ const projects = [
     liveUrl: "https://x-clone-demo.example.com",
     githubUrl: "https://github.com/espoir-kakesa/x-clone",
     image: xCloneImg
+  },
+  {
+    title: "Kin Events",
+    description: "Plateforme de gestion d'événements avec suivi des participants et des confirmations.",
+    technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    liveUrl: "https://kin-events-demo.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/kin-events",
+    image: kinEventsImg
+  },
+  {
+    title: "Mafraland",
+    description: "Projet innovant avec interface moderne et fonctionnalités avancées.",
+    technologies: ["React", "Tailwind CSS", "Node.js"],
+    liveUrl: "https://mafraland-demo.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/mafraland",
+    image: mafralandImg
+  },
+  {
+    title: "Maranata",
+    description: "Application web complète avec gestion de contenu et interface intuitive.",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://maranata-demo.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/maranata",
+    image: maranataImg
+  },
+  {
+    title: "CareerStart",
+    description: "Plateforme d'aide à l'insertion professionnelle et développement de carrière.",
+    technologies: ["React", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    liveUrl: "https://careerstart-demo.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/careerstart",
+    image: careerstartImg
   }
 ];
 
@@ -45,7 +81,7 @@ const ProjectsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Card 
               key={index} 
