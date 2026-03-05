@@ -26,6 +26,41 @@ const experiences = [
     ],
   },
   {
+    title: "Développeur Full-Stack - Acadex",
+    company: "Projet Personnel",
+    location: "Kinshasa, RDC",
+    period: "2024 - 2025",
+    current: false,
+    tasks: [
+      "Conception et développement d'une plateforme complète de gestion d'établissement scolaire",
+      "Gestion des élèves, professeurs, parents et personnel administratif",
+      "Développement des modules de cours, présences et bulletins",
+    ],
+  },
+  {
+    title: "Développeur Full-Stack - HK Events",
+    company: "Projet Personnel",
+    location: "Kinshasa, RDC",
+    period: "2024 - 2025",
+    current: false,
+    tasks: [
+      "Création d'une plateforme de gestion d'événements et suivi des invités",
+      "Développement du système d'invitations, confirmations et déclinaisons",
+      "Mise en place d'un tableau de bord intuitif pour la gestion efficace",
+    ],
+  },
+  {
+    title: "Développeur Front-End - Clone X",
+    company: "Projet Personnel",
+    location: "Kinshasa, RDC",
+    period: "2024",
+    current: false,
+    tasks: [
+      "Clonage de la plateforme X (anciennement Twitter) avec React et Firebase",
+      "Développement du feed en temps réel et des interactions utilisateurs",
+    ],
+  },
+  {
     title: "Développeur back-end PHP/Laravel",
     company: "Projet Personnel",
     location: "Kinshasa, RDC",
@@ -48,7 +83,6 @@ const experiences = [
     ],
   },
 ];
-
 const ExperienceSection = () => {
   return (
     <section id="experience" className="py-20 lg:py-32">
