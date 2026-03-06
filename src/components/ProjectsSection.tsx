@@ -1,6 +1,7 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import acadexImg from "@/assets/projects/acadex.png";
 import hkEventsImg from "@/assets/projects/hk-events.png";
 import xCloneImg from "@/assets/projects/home.png";
@@ -20,7 +21,7 @@ const projects = [
   },
   {
     title: "HK Events",
-    description: "Plateforme de gestion d'événements et suivi des invités. Créez des événements, gérez les invitations, suivez les confirmations et les déclinaisons. Un tableau de bord intuitif pour une gestion efficace.",
+    description: "Plateforme de gestion d'événements et suivi des invités. Créez des événements, gérez les invitations, suivez les confirmations et les déclinaisons.",
     technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
     liveUrl: "https://hk-events-demo.example.com",
     githubUrl: "https://github.com/espoir-kakesa/hk-events",
@@ -28,7 +29,7 @@ const projects = [
   },
   {
     title: "X Clone",
-    description: "Clone de la plateforme de réseautage social X (anciennement Twitter). Partagez vos pensées, interagissez avec d'autres utilisateurs et explorez un feed en temps réel.",
+    description: "Clone de la plateforme de réseautage social X (anciennement Twitter). Partagez vos pensées, interagissez avec d'autres utilisateurs.",
     technologies: ["React", "Vite", "Firebase", "Tailwind CSS", "TypeScript"],
     liveUrl: "https://x-clone-demo.example.com",
     githubUrl: "https://github.com/espoir-kakesa/x-clone",
@@ -69,10 +70,16 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
+  const headerReveal = useScrollReveal();
+  const cardsReveal = useStaggerReveal(projects.length);
+
   return (
     <section id="projects" className="py-20 px-4 bg-secondary/30">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
+        <div
+          ref={headerReveal.ref}
+          className={`text-center mb-16 reveal-blur ${headerReveal.isVisible ? "revealed" : ""}`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Mes <span className="text-primary">Réalisations</span>
           </h2>
@@ -81,29 +88,28 @@ const ProjectsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={cardsReveal.ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card 
-              key={index} 
-              className="group overflow-hidden bg-card/50 border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
-              style={{ animationDelay: `${index * 100}ms` }}
+            <Card
+              key={index}
+              className={`group overflow-hidden bg-card/50 border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 reveal-rotate ${cardsReveal.isVisible ? "revealed" : ""}`}
+              style={cardsReveal.getStaggerDelay(index)}
             >
               <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-3">
-                  <Button 
-                    size="sm" 
-                    className="bg-primary hover:bg-primary/90"
+                  <Button
+                    size="sm"
+                    className="bg-primary hover:bg-primary/90 transition-transform duration-300 hover:scale-105"
                     onClick={() => window.open(project.liveUrl, '_blank')}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Visiter
                   </Button>
-                  
                 </div>
               </div>
               <CardContent className="p-6">
@@ -115,9 +121,9 @@ const ProjectsSection = () => {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, techIndex) => (
-                    <span 
+                    <span
                       key={techIndex}
-                      className="px-3 py-1 text-xs font-mono bg-primary/10 text-primary rounded-full"
+                      className="px-3 py-1 text-xs font-mono bg-primary/10 text-primary rounded-full transition-all duration-300 hover:bg-primary/20 hover:scale-105"
                     >
                       {tech}
                     </span>

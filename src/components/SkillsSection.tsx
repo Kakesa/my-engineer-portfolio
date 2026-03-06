@@ -1,4 +1,5 @@
 import { Code, Database, GitBranch, Layout, Server, Wrench } from "lucide-react";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 const skillCategories = [
   {
@@ -24,10 +25,16 @@ const skillCategories = [
 ];
 
 const SkillsSection = () => {
+  const headerReveal = useScrollReveal();
+  const cardsReveal = useStaggerReveal(skillCategories.length);
+
   return (
     <section id="skills" className="py-20 lg:py-32 bg-card/30">
       <div className="container px-6">
-        <div className="text-center mb-16">
+        <div
+          ref={headerReveal.ref}
+          className={`text-center mb-16 reveal-blur ${headerReveal.isVisible ? "revealed" : ""}`}
+        >
           <p className="font-mono text-primary text-sm mb-4 tracking-wider">
             &lt;Mes compétences /&gt;
           </p>
@@ -39,15 +46,15 @@ const SkillsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div ref={cardsReveal.ref} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
-              className="group card-gradient border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`group card-gradient border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-2 reveal-scale ${cardsReveal.isVisible ? "revealed" : ""}`}
+              style={cardsReveal.getStaggerDelay(index)}
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
                   <category.icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-semibold text-lg">{category.title}</h3>
@@ -56,7 +63,7 @@ const SkillsSection = () => {
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1.5 text-sm bg-secondary rounded-lg text-muted-foreground hover:bg-primary/20 hover:text-primary transition-colors duration-300"
+                    className="px-3 py-1.5 text-sm bg-secondary rounded-lg text-muted-foreground hover:bg-primary/20 hover:text-primary transition-all duration-300 hover:scale-105 cursor-default"
                   >
                     {skill}
                   </span>
