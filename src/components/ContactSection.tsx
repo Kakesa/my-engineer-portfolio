@@ -1,7 +1,41 @@
-import { Download, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Download, FileText, Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Label } from "./ui/label";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
+  const { toast } = useToast();
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    description: "",
+    budget: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.subject || !form.description) {
+      toast({ title: "Erreur", description: "Veuillez remplir tous les champs obligatoires.", variant: "destructive" });
+      return;
+    }
+
+    const body = `Bonjour Espoir,%0D%0A%0D%0AJe suis ${encodeURIComponent(form.name)}.%0D%0A%0D%0A📋 Sujet : ${encodeURIComponent(form.subject)}%0D%0A💰 Budget estimé : ${encodeURIComponent(form.budget || "Non précisé")}%0D%0A📞 Téléphone : ${encodeURIComponent(form.phone || "Non précisé")}%0D%0A%0D%0A📝 Description du projet :%0D%0A${encodeURIComponent(form.description)}%0D%0A%0D%0ACordialement,%0D%0A${encodeURIComponent(form.name)}%0D%0A${encodeURIComponent(form.email)}`;
+
+    window.location.href = `mailto:espoirkakesa2@gmail.com?subject=${encodeURIComponent(`Demande de devis - ${form.subject}`)}&body=${body}`;
+
+    toast({ title: "Redirection", description: "Votre client mail va s'ouvrir avec le devis pré-rempli." });
+    setForm({ name: "", email: "", phone: "", subject: "", description: "", budget: "" });
+  };
+
   return (
     <section id="contact" className="py-20 lg:py-32">
       <div className="container px-6">
@@ -18,9 +52,9 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="card-gradient border border-border rounded-3xl p-8 md:p-12">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-10">
               {/* Contact Info */}
               <div>
                 <h3 className="text-xl font-bold mb-6">Informations de contact</h3>
@@ -84,23 +118,62 @@ const ContactSection = () => {
                     </a>
                   </div>
                 </div>
+
+                {/* Download CV */}
+                <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/5 border border-primary/20 text-center">
+                  <Download className="w-8 h-8 text-primary mx-auto mb-3" />
+                  <h4 className="font-bold mb-2">Télécharger mon CV</h4>
+                  <Button variant="hero" size="default" asChild>
+                    <a href="/Espoir_Kakesa.pdf" download>
+                      <Download className="w-4 h-4" />
+                      Télécharger CV
+                    </a>
+                  </Button>
+                </div>
               </div>
 
-              {/* CTA */}
-              <div className="flex flex-col justify-center items-center text-center p-8 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/5 border border-primary/20">
-                <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 animate-pulse-glow">
-                  <Download className="w-8 h-8 text-primary" />
+              {/* Quote Form */}
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-3 rounded-xl bg-primary/10 text-primary">
+                    <FileText className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold">Demande de devis</h3>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Télécharger mon CV</h3>
-                <p className="text-muted-foreground text-sm mb-6">
-                  Obtenez une copie complète de mon parcours professionnel et de mes compétences.
-                </p>
-                <Button variant="hero" size="lg" asChild>
-                  <a href="/CV_Espoir_Kakesa.pdf" download>
-                    <Download className="w-5 h-5" />
-                    Télécharger CV
-                  </a>
-                </Button>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Nom complet *</Label>
+                      <Input id="name" name="name" placeholder="Votre nom" value={form.name} onChange={handleChange} />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email *</Label>
+                      <Input id="email" name="email" type="email" placeholder="votre@email.com" value={form.email} onChange={handleChange} />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Téléphone</Label>
+                      <Input id="phone" name="phone" placeholder="+243..." value={form.phone} onChange={handleChange} />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="budget">Budget estimé</Label>
+                      <Input id="budget" name="budget" placeholder="Ex: 500$" value={form.budget} onChange={handleChange} />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="subject">Sujet du projet *</Label>
+                    <Input id="subject" name="subject" placeholder="Ex: Site e-commerce, Application mobile..." value={form.subject} onChange={handleChange} />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="description">Description du projet *</Label>
+                    <Textarea id="description" name="description" placeholder="Décrivez votre projet, vos besoins et vos attentes..." rows={4} value={form.description} onChange={handleChange} />
+                  </div>
+                  <Button type="submit" variant="hero" size="lg" className="w-full">
+                    <Send className="w-5 h-5" />
+                    Envoyer la demande
+                  </Button>
+                </form>
               </div>
             </div>
           </div>
