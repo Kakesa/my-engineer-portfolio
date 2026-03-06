@@ -1,4 +1,5 @@
 import { Award, GraduationCap } from "lucide-react";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 const education = [
   {
@@ -52,10 +53,16 @@ const education = [
 ];
 
 const EducationSection = () => {
+  const headerReveal = useScrollReveal();
+  const cardsReveal = useStaggerReveal(education.length);
+
   return (
     <section id="education" className="py-20 lg:py-32 bg-card/30">
       <div className="container px-6">
-        <div className="text-center mb-16">
+        <div
+          ref={headerReveal.ref}
+          className={`text-center mb-16 reveal-blur ${headerReveal.isVisible ? "revealed" : ""}`}
+        >
           <p className="font-mono text-primary text-sm mb-4 tracking-wider">
             &lt;Ma formation /&gt;
           </p>
@@ -67,20 +74,21 @@ const EducationSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div ref={cardsReveal.ref} className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {education.map((edu, index) => (
             <div
               key={index}
-              className="group card-gradient border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
+              className={`group card-gradient border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-2 reveal-scale ${cardsReveal.isVisible ? "revealed" : ""}`}
+              style={cardsReveal.getStaggerDelay(index)}
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
                   <GraduationCap className="w-6 h-6" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
                     {edu.current && (
-                      <span className="px-2 py-0.5 text-xs font-medium bg-primary/20 text-primary rounded-full">
+                      <span className="px-2 py-0.5 text-xs font-medium bg-primary/20 text-primary rounded-full animate-pulse">
                         En cours
                       </span>
                     )}

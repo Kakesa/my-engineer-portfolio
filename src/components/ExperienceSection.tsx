@@ -1,4 +1,5 @@
 import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const experiences = [
   {
@@ -83,11 +84,82 @@ const experiences = [
     ],
   },
 ];
+
+const ExperienceCard = ({ exp, index }: { exp: typeof experiences[0]; index: number }) => {
+  const cardReveal = useScrollReveal({ threshold: 0.1 });
+  const direction = index % 2 === 0 ? "reveal-left" : "reveal-right";
+
+  return (
+    <div
+      className={`relative flex flex-col md:flex-row gap-8 mb-12 last:mb-0 ${
+        index % 2 === 0 ? "md:flex-row-reverse" : ""
+      }`}
+    >
+      {/* Timeline dot */}
+      <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow-effect z-10" />
+
+      {/* Content */}
+      <div
+        ref={cardReveal.ref}
+        className={`flex-1 ml-16 md:ml-0 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"} ${direction} ${cardReveal.isVisible ? "revealed" : ""}`}
+        style={{ transitionDelay: `${index * 80}ms` }}
+      >
+        <div className="card-gradient border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            {exp.current && (
+              <span className="px-3 py-1 text-xs font-medium bg-primary/20 text-primary rounded-full animate-pulse">
+                Actuel
+              </span>
+            )}
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Calendar className="w-4 h-4 text-primary" />
+              {exp.period}
+            </div>
+          </div>
+
+          <h3 className="text-xl font-bold mb-2">{exp.title}</h3>
+
+          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
+            <div className="flex items-center gap-2">
+              <Briefcase className="w-4 h-4 text-primary" />
+              {exp.company}
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-primary" />
+              {exp.location}
+            </div>
+          </div>
+
+          <ul className="space-y-2">
+            {exp.tasks.map((task, taskIndex) => (
+              <li
+                key={taskIndex}
+                className="flex items-start gap-3 text-sm text-muted-foreground"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                {task}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Spacer for alternating layout */}
+      <div className="hidden md:block flex-1" />
+    </div>
+  );
+};
+
 const ExperienceSection = () => {
+  const headerReveal = useScrollReveal();
+
   return (
     <section id="experience" className="py-20 lg:py-32">
       <div className="container px-6">
-        <div className="text-center mb-16">
+        <div
+          ref={headerReveal.ref}
+          className={`text-center mb-16 reveal-blur ${headerReveal.isVisible ? "revealed" : ""}`}
+        >
           <p className="font-mono text-primary text-sm mb-4 tracking-wider">
             &lt;Mon parcours /&gt;
           </p>
@@ -105,60 +177,7 @@ const ExperienceSection = () => {
             <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent" />
 
             {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className={`relative flex flex-col md:flex-row gap-8 mb-12 last:mb-0 ${
-                  index % 2 === 0 ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow-effect z-10" />
-
-                {/* Content */}
-                <div className={`flex-1 ml-16 md:ml-0 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
-                  <div className="card-gradient border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10">
-                    <div className="flex flex-wrap items-center gap-3 mb-4">
-                      {exp.current && (
-                        <span className="px-3 py-1 text-xs font-medium bg-primary/20 text-primary rounded-full">
-                          Actuel
-                        </span>
-                      )}
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Calendar className="w-4 h-4 text-primary" />
-                        {exp.period}
-                      </div>
-                    </div>
-
-                    <h3 className="text-xl font-bold mb-2">{exp.title}</h3>
-                    
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
-                      <div className="flex items-center gap-2">
-                        <Briefcase className="w-4 h-4 text-primary" />
-                        {exp.company}
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-primary" />
-                        {exp.location}
-                      </div>
-                    </div>
-
-                    <ul className="space-y-2">
-                      {exp.tasks.map((task, taskIndex) => (
-                        <li
-                          key={taskIndex}
-                          className="flex items-start gap-3 text-sm text-muted-foreground"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                          {task}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Spacer for alternating layout */}
-                <div className="hidden md:block flex-1" />
-              </div>
+              <ExperienceCard key={index} exp={exp} index={index} />
             ))}
           </div>
         </div>

@@ -5,9 +5,14 @@ import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const headerReveal = useScrollReveal();
+  const leftReveal = useScrollReveal({ threshold: 0.1 });
+  const rightReveal = useScrollReveal({ threshold: 0.1 });
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -39,7 +44,10 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-20 lg:py-32">
       <div className="container px-6">
-        <div className="text-center mb-16">
+        <div
+          ref={headerReveal.ref}
+          className={`text-center mb-16 reveal-blur ${headerReveal.isVisible ? "revealed" : ""}`}
+        >
           <p className="font-mono text-primary text-sm mb-4 tracking-wider">
             &lt;Me contacter /&gt;
           </p>
@@ -56,14 +64,17 @@ const ContactSection = () => {
           <div className="card-gradient border border-border rounded-3xl p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-10">
               {/* Contact Info */}
-              <div>
+              <div
+                ref={leftReveal.ref}
+                className={`reveal-left ${leftReveal.isVisible ? "revealed" : ""}`}
+              >
                 <h3 className="text-xl font-bold mb-6">Informations de contact</h3>
                 <div className="space-y-4">
                   <a
                     href="mailto:espoirkakesa2@gmail.com"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-secondary/50 hover:bg-primary/10 transition-colors group"
+                    className="flex items-center gap-4 p-4 rounded-xl bg-secondary/50 hover:bg-primary/10 transition-all duration-300 group hover:translate-x-2"
                   >
-                    <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                    <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:rotate-12">
                       <Mail className="w-5 h-5" />
                     </div>
                     <div>
@@ -74,9 +85,9 @@ const ContactSection = () => {
 
                   <a
                     href="tel:+243828863897"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-secondary/50 hover:bg-primary/10 transition-colors group"
+                    className="flex items-center gap-4 p-4 rounded-xl bg-secondary/50 hover:bg-primary/10 transition-all duration-300 group hover:translate-x-2"
                   >
-                    <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                    <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:rotate-12">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
@@ -104,7 +115,7 @@ const ContactSection = () => {
                       href="https://github.com/Kakesa"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-xl bg-secondary hover:bg-primary/20 hover:text-primary transition-all duration-300 hover:scale-110"
+                      className="p-3 rounded-xl bg-secondary hover:bg-primary/20 hover:text-primary transition-all duration-300 hover:scale-110 hover:rotate-6"
                     >
                       <Github className="w-5 h-5" />
                     </a>
@@ -112,7 +123,7 @@ const ContactSection = () => {
                       href="https://www.linkedin.com/in/espoir-kakesa-b9060124"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-xl bg-secondary hover:bg-primary/20 hover:text-primary transition-all duration-300 hover:scale-110"
+                      className="p-3 rounded-xl bg-secondary hover:bg-primary/20 hover:text-primary transition-all duration-300 hover:scale-110 hover:-rotate-6"
                     >
                       <Linkedin className="w-5 h-5" />
                     </a>
@@ -120,7 +131,7 @@ const ContactSection = () => {
                 </div>
 
                 {/* Download CV */}
-                <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/5 border border-primary/20 text-center">
+                <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/5 border border-primary/20 text-center hover:shadow-lg hover:shadow-primary/10 transition-all duration-500">
                   <Download className="w-8 h-8 text-primary mx-auto mb-3" />
                   <h4 className="font-bold mb-2">Télécharger mon CV</h4>
                   <Button variant="hero" size="default" asChild>
@@ -133,7 +144,11 @@ const ContactSection = () => {
               </div>
 
               {/* Quote Form */}
-              <div>
+              <div
+                ref={rightReveal.ref}
+                className={`reveal-right ${rightReveal.isVisible ? "revealed" : ""}`}
+                style={{ transitionDelay: "150ms" }}
+              >
                 <div className="flex items-center gap-3 mb-6">
                   <div className="p-3 rounded-xl bg-primary/10 text-primary">
                     <FileText className="w-6 h-6" />
@@ -169,8 +184,8 @@ const ContactSection = () => {
                     <Label htmlFor="description">Description du projet *</Label>
                     <Textarea id="description" name="description" placeholder="Décrivez votre projet, vos besoins et vos attentes..." rows={4} value={form.description} onChange={handleChange} />
                   </div>
-                  <Button type="submit" variant="hero" size="lg" className="w-full">
-                    <Send className="w-5 h-5" />
+                  <Button type="submit" variant="hero" size="lg" className="w-full group">
+                    <Send className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                     Envoyer la demande
                   </Button>
                 </form>
@@ -183,10 +198,10 @@ const ContactSection = () => {
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground mb-4">Langues</p>
           <div className="flex justify-center gap-4">
-            <span className="px-4 py-2 rounded-full bg-secondary text-sm">
+            <span className="px-4 py-2 rounded-full bg-secondary text-sm hover:bg-primary/20 hover:text-primary transition-all duration-300 hover:scale-105 cursor-default">
               🇫🇷 Français - Avancé
             </span>
-            <span className="px-4 py-2 rounded-full bg-secondary text-sm">
+            <span className="px-4 py-2 rounded-full bg-secondary text-sm hover:bg-primary/20 hover:text-primary transition-all duration-300 hover:scale-105 cursor-default">
               🇬🇧 Anglais - Intermédiaire
             </span>
           </div>
