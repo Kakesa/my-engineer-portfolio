@@ -30,8 +30,8 @@ const experiences = [
     title: "Développeur Full-Stack - Acadex",
     company: "Projet Personnel",
     location: "Kinshasa, RDC",
-    period: "2024 - 2025",
-    current: false,
+    period: "2024 - Présent",
+    current: true,
     tasks: [
       "Conception et développement d'une plateforme complète de gestion d'établissement scolaire",
       "Gestion des élèves, professeurs, parents et personnel administratif",
@@ -42,8 +42,8 @@ const experiences = [
     title: "Développeur Full-Stack - HK Events",
     company: "Projet Personnel",
     location: "Kinshasa, RDC",
-    period: "2024 - 2025",
-    current: false,
+    period: "2024 - Présent",
+    current: true,
     tasks: [
       "Création d'une plateforme de gestion d'événements et suivi des invités",
       "Développement du système d'invitations, confirmations et déclinaisons",
