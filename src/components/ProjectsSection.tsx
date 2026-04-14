@@ -67,6 +67,14 @@ const projects = [
     liveUrl: "https://careerstart-demo.example.com",
     githubUrl: "https://github.com/espoir-kakesa/careerstart",
     image: careerstartImg
+  },
+  {
+    title: "Bisengo",
+    description: "Site web pour l'ONG Bisengo. Présentation des missions humanitaires, collecte de dons et sensibilisation communautaire en Afrique.",
+    technologies: ["React", "Tailwind CSS", "Node.js", "TypeScript"],
+    liveUrl: "https://bisengo-ong.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/bisengo",
+    image: bisengoImg
   }
 ];
 
