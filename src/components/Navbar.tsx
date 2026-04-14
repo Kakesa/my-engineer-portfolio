@@ -88,12 +88,15 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <Button variant="default" size="sm" asChild className="mt-4">
-                <a href="/CV_Espoir_Kakesa.pdf" download>
-                  <Download className="w-4 h-4" />
-                  Télécharger CV
-                </a>
-              </Button>
+              <div className="flex items-center gap-3 mt-4">
+                <ThemeToggle />
+                <Button variant="default" size="sm" asChild>
+                  <a href="/CV_Espoir_Kakesa.pdf" download>
+                    <Download className="w-4 h-4" />
+                    Télécharger CV
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         )}
