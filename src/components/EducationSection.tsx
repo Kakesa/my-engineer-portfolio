@@ -14,7 +14,7 @@ const education = [
     title: "React - Développement Front-End",
     institution: "Coursera",
     location: "En ligne",
-    period: "Depuis 2024",
+    period: "Depuis 2026",
     type: "Certification en Ligne",
     current: true,
   },
