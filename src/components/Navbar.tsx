@@ -1,6 +1,7 @@
 import { Download, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { href: "#skills", label: "Compétences" },
