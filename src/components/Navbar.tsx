@@ -54,8 +54,9 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Button & Theme Toggle */}
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
             <Button variant="default" size="sm" asChild>
               <a href="/CV_Espoir_Kakesa.pdf" download>
                 <Download className="w-4 h-4" />
