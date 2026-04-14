@@ -14,9 +14,9 @@ const education = [
     title: "React - Développement Front-End",
     institution: "Coursera",
     location: "En ligne",
-    period: "2024",
+    period: "Depuis 2024",
     type: "Certification en Ligne",
-    current: false,
+    current: true,
   },
   {
     title: "Formation Développeur Web Full Stack",
