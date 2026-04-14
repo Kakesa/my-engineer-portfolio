@@ -3,6 +3,30 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const experiences = [
   {
+    title: "Développeur Full-Stack - Acadex",
+    company: "Projet Personnel",
+    location: "Kinshasa, RDC",
+    period: "2025 - Présent",
+    current: true,
+    tasks: [
+      "Conception et développement d'une plateforme complète de gestion d'établissement scolaire",
+      "Gestion des élèves, professeurs, parents et personnel administratif",
+      "Développement des modules de cours, présences et bulletins",
+    ],
+  },
+  {
+    title: "Développeur Full-Stack - HK Events",
+    company: "Projet Personnel",
+    location: "Kinshasa, RDC",
+    period: "2025 - Présent",
+    current: true,
+    tasks: [
+      "Création d'une plateforme de gestion d'événements et suivi des invités",
+      "Développement du système d'invitations, confirmations et déclinaisons",
+      "Mise en place d'un tableau de bord intuitif pour la gestion efficace",
+    ],
+  },
+  {
     title: "Développeur Back-end",
     company: "LGIC-Tech Sarlu",
     location: "Matadi, RDC",
@@ -24,30 +48,6 @@ const experiences = [
     tasks: [
       "Développer des interfaces utilisateur dynamiques avec Angular, HTML, CSS, Tailwind et JavaScript",
       "Collaborer avec les équipes de design pour garantir une expérience utilisateur optimale",
-    ],
-  },
-  {
-    title: "Développeur Full-Stack - Acadex",
-    company: "Projet Personnel",
-    location: "Kinshasa, RDC",
-    period: "2024 - Présent",
-    current: true,
-    tasks: [
-      "Conception et développement d'une plateforme complète de gestion d'établissement scolaire",
-      "Gestion des élèves, professeurs, parents et personnel administratif",
-      "Développement des modules de cours, présences et bulletins",
-    ],
-  },
-  {
-    title: "Développeur Full-Stack - HK Events",
-    company: "Projet Personnel",
-    location: "Kinshasa, RDC",
-    period: "2024 - Présent",
-    current: true,
-    tasks: [
-      "Création d'une plateforme de gestion d'événements et suivi des invités",
-      "Développement du système d'invitations, confirmations et déclinaisons",
-      "Mise en place d'un tableau de bord intuitif pour la gestion efficace",
     ],
   },
   {
