@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import acadexImg from "@/assets/projects/acadex.png";
 import hkEventsImg from "@/assets/projects/hk-events.png";
-import xCloneImg from "@/assets/projects/home.png";
+import xCloneImg from "@/assets/projects/x-clone.jpg";
 import kinEventsImg from "@/assets/projects/kin-events.png";
 import mafralandImg from "@/assets/projects/mafraland.png";
 import maranataImg from "@/assets/projects/maranata.png";
 import careerstartImg from "@/assets/projects/careerstart.png";
+import bisengoImg from "@/assets/projects/bisengo.jpg";
 
 const projects = [
   {
@@ -66,6 +67,14 @@ const projects = [
     liveUrl: "https://careerstart-demo.example.com",
     githubUrl: "https://github.com/espoir-kakesa/careerstart",
     image: careerstartImg
+  },
+  {
+    title: "Bisengo",
+    description: "Site web pour l'ONG Bisengo. Présentation des missions humanitaires, collecte de dons et sensibilisation communautaire en Afrique.",
+    technologies: ["React", "Tailwind CSS", "Node.js", "TypeScript"],
+    liveUrl: "https://bisengo-ong.example.com",
+    githubUrl: "https://github.com/espoir-kakesa/bisengo",
+    image: bisengoImg
   }
 ];
 
