@@ -1,6 +1,7 @@
 import { Download, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { href: "#skills", label: "Compétences" },
@@ -53,8 +54,9 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Button & Theme Toggle */}
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
             <Button variant="default" size="sm" asChild>
               <a href="/CV_Espoir_Kakesa.pdf" download>
                 <Download className="w-4 h-4" />
@@ -86,12 +88,15 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <Button variant="default" size="sm" asChild className="mt-4">
-                <a href="/CV_Espoir_Kakesa.pdf" download>
-                  <Download className="w-4 h-4" />
-                  Télécharger CV
-                </a>
-              </Button>
+              <div className="flex items-center gap-3 mt-4">
+                <ThemeToggle />
+                <Button variant="default" size="sm" asChild>
+                  <a href="/CV_Espoir_Kakesa.pdf" download>
+                    <Download className="w-4 h-4" />
+                    Télécharger CV
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         )}
