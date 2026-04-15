@@ -95,8 +95,12 @@ const ExperienceCard = ({ exp, index }: { exp: typeof experiences[0]; index: num
         index % 2 === 0 ? "md:flex-row-reverse" : ""
       }`}
     >
-      {/* Timeline dot */}
-      <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow-effect z-10" />
+      {/* Timeline dot with pulse ring */}
+      <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-10">
+        <div className="w-4 h-4 rounded-full bg-primary glow-effect relative">
+          <div className="absolute inset-0 rounded-full bg-primary/30 animate-ripple" />
+        </div>
+      </div>
 
       {/* Content */}
       <div
@@ -104,28 +108,29 @@ const ExperienceCard = ({ exp, index }: { exp: typeof experiences[0]; index: num
         className={`flex-1 ml-16 md:ml-0 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"} ${direction} ${cardReveal.isVisible ? "revealed" : ""}`}
         style={{ transitionDelay: `${index * 80}ms` }}
       >
-        <div className="card-gradient border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
+        <div className="card-gradient border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/15 hover:-translate-y-2 group">
           <div className="flex flex-wrap items-center gap-3 mb-4">
             {exp.current && (
-              <span className="px-3 py-1 text-xs font-medium bg-primary/20 text-primary rounded-full animate-pulse">
-                Actuel
+              <span className="px-3 py-1 text-xs font-medium bg-primary/20 text-primary rounded-full relative overflow-hidden">
+                <span className="relative z-10">Actuel</span>
+                <span className="absolute inset-0 bg-primary/10 animate-pulse" />
               </span>
             )}
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Calendar className="w-4 h-4 text-primary" />
+              <Calendar className="w-4 h-4 text-primary transition-transform duration-300 group-hover:rotate-12" />
               {exp.period}
             </div>
           </div>
 
-          <h3 className="text-xl font-bold mb-2">{exp.title}</h3>
+          <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">{exp.title}</h3>
 
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
             <div className="flex items-center gap-2">
-              <Briefcase className="w-4 h-4 text-primary" />
+              <Briefcase className="w-4 h-4 text-primary transition-transform duration-300 group-hover:scale-110" />
               {exp.company}
             </div>
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-primary" />
+              <MapPin className="w-4 h-4 text-primary transition-transform duration-300 group-hover:bounce" />
               {exp.location}
             </div>
           </div>
@@ -134,9 +139,9 @@ const ExperienceCard = ({ exp, index }: { exp: typeof experiences[0]; index: num
             {exp.tasks.map((task, taskIndex) => (
               <li
                 key={taskIndex}
-                className="flex items-start gap-3 text-sm text-muted-foreground"
+                className="flex items-start gap-3 text-sm text-muted-foreground transition-all duration-300 hover:text-foreground hover:translate-x-2"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0 transition-transform duration-300 group-hover:scale-150" />
                 {task}
               </li>
             ))}
@@ -154,8 +159,11 @@ const ExperienceSection = () => {
   const headerReveal = useScrollReveal();
 
   return (
-    <section id="experience" className="py-20 lg:py-32">
-      <div className="container px-6">
+    <section id="experience" className="py-20 lg:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute top-1/3 right-0 w-96 h-96 bg-primary/3 rounded-full blur-[120px] animate-float-slow" />
+
+      <div className="container px-6 relative z-10">
         <div
           ref={headerReveal.ref}
           className={`text-center mb-16 reveal-blur ${headerReveal.isVisible ? "revealed" : ""}`}
@@ -164,7 +172,7 @@ const ExperienceSection = () => {
             &lt;Mon parcours /&gt;
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Expériences <span className="gradient-text">Professionnelles</span>
+            Expériences <span className="gradient-text-shimmer">Professionnelles</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Mon parcours professionnel dans le développement web et logiciel.
@@ -173,7 +181,7 @@ const ExperienceSection = () => {
 
         <div className="max-w-4xl mx-auto">
           <div className="relative">
-            {/* Timeline line */}
+            {/* Timeline line with gradient */}
             <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent" />
 
             {experiences.map((exp, index) => (
