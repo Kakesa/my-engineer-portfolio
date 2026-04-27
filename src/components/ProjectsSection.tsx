@@ -3,14 +3,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
-import acadexImg from "@/assets/projects/acadex.png";
-import hkEventsImg from "@/assets/projects/hk-events.png";
-import xCloneImg from "@/assets/projects/x-clone.jpg";
-import kinEventsImg from "@/assets/projects/kin-events.png";
-import mafralandImg from "@/assets/projects/mafraland.png";
-import maranataImg from "@/assets/projects/maranata.png";
-import careerstartImg from "@/assets/projects/careerstart.png";
-import bisengoImg from "@/assets/projects/bisengo.jpg";
+import acadexImg from "@/assets/projects/acadex.webp";
+import hkEventsImg from "@/assets/projects/hk-events.webp";
+import xCloneImg from "@/assets/projects/x-clone.webp";
+import kinEventsImg from "@/assets/projects/kin-events.webp";
+import mafralandImg from "@/assets/projects/mafraland.webp";
+import maranataImg from "@/assets/projects/maranata.webp";
+import careerstartImg from "@/assets/projects/careerstart.webp";
+import bisengoImg from "@/assets/projects/bisengo.webp";
 
 const projects = [
   {
@@ -98,6 +98,8 @@ const ProjectCard = ({ project, index, isVisible, staggerDelay }: {
         <img
           src={project.image}
           alt={project.title}
+          loading="lazy"
+          decoding="async"
           className={`w-full h-48 object-cover transition-all duration-1000 ${isHovered ? "scale-110 blur-[1px]" : "scale-100"}`}
         />
         <div className={`absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent transition-all duration-500 flex items-end justify-center pb-4 gap-3 ${isHovered ? "opacity-100" : "opacity-0"}`}>
