@@ -1,9 +1,12 @@
 import { useEffect, useRef } from "react";
+import { useReducedAnimations } from "@/hooks/useReducedAnimations";
 
 const ParticlesBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const reduced = useReducedAnimations();
 
   useEffect(() => {
+    if (reduced) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -19,8 +22,12 @@ const ParticlesBackground = () => {
       canvas.height = window.innerHeight;
     };
 
+    // Lower particle count on smaller screens to keep things smooth
+    const targetCount = window.innerWidth < 1024 ? 25 : 50;
+    const linkDistance = window.innerWidth < 1024 ? 90 : 120;
+
     const createParticles = () => {
-      particles = Array.from({ length: 50 }, () => ({
+      particles = Array.from({ length: targetCount }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.5,
@@ -52,11 +59,11 @@ const ParticlesBackground = () => {
           const dx = p.x - particles[j].x;
           const dy = p.y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          if (dist < linkDistance) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(${color}, ${0.1 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(${color}, ${0.1 * (1 - dist / linkDistance)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -75,7 +82,9 @@ const ParticlesBackground = () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", resize);
     };
-  }, []);
+  }, [reduced]);
+
+  if (reduced) return null;
 
   return (
     <canvas
