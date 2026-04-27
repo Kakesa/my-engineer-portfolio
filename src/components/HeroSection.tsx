@@ -2,6 +2,7 @@ import { Download, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import profileImage from "@/assets/hope.jpeg";
+import { useReducedAnimations } from "@/hooks/useReducedAnimations";
 
 const roles = ["Software Engineer", "Développeur Full Stack", "React Developer", "Node.js Developer"];
 
@@ -9,6 +10,7 @@ const HeroSection = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const reduced = useReducedAnimations();
 
   useEffect(() => {
     const current = roles[roleIndex];
@@ -42,18 +44,21 @@ const HeroSection = () => {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '3s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-[100px] animate-morph" />
-        
-        {/* Orbiting elements */}
-        <div className="absolute top-1/3 left-1/4 animate-orbit" style={{ animationDuration: '25s' }}>
-          <div className="w-2 h-2 rounded-full bg-primary/40" />
-        </div>
-        <div className="absolute top-1/2 right-1/3 animate-orbit" style={{ animationDuration: '18s', animationDirection: 'reverse' }}>
-          <div className="w-3 h-3 rounded-full bg-accent/30" />
-        </div>
-        <div className="absolute bottom-1/3 left-1/3 animate-orbit" style={{ animationDuration: '30s' }}>
-          <div className="w-1.5 h-1.5 rounded-full bg-primary/50" />
-        </div>
+        {!reduced && (
+          <>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-[100px] animate-morph" />
+            {/* Orbiting elements */}
+            <div className="absolute top-1/3 left-1/4 animate-orbit" style={{ animationDuration: '25s' }}>
+              <div className="w-2 h-2 rounded-full bg-primary/40" />
+            </div>
+            <div className="absolute top-1/2 right-1/3 animate-orbit" style={{ animationDuration: '18s', animationDirection: 'reverse' }}>
+              <div className="w-3 h-3 rounded-full bg-accent/30" />
+            </div>
+            <div className="absolute bottom-1/3 left-1/3 animate-orbit" style={{ animationDuration: '30s' }}>
+              <div className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+            </div>
+          </>
+        )}
       </div>
 
       <div className="container relative z-10 px-6 py-20">
@@ -65,6 +70,9 @@ const HeroSection = () => {
               <img
                 src={profileImage}
                 alt="Espoir Kakesa - Développeur Full Stack"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
             </div>
@@ -72,7 +80,9 @@ const HeroSection = () => {
               <div className="w-4 h-4 rounded-full bg-primary animate-ripple" />
             </div>
             {/* Decorative ring */}
-            <div className="absolute -inset-8 border-2 border-dashed border-primary/10 rounded-full animate-spin-slow" />
+            {!reduced && (
+              <div className="absolute -inset-8 border-2 border-dashed border-primary/10 rounded-full animate-spin-slow" />
+            )}
           </div>
 
           {/* Content */}
