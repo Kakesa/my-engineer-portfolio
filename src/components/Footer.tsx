@@ -3,6 +3,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Footer = () => {
   const footerReveal = useScrollReveal({ threshold: 0.1 });
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="py-8 border-t border-border relative overflow-hidden">
@@ -18,7 +19,7 @@ const Footer = () => {
               <span className="text-muted-foreground">.</span>
             </span>
             <span className="text-sm text-muted-foreground">
-              © 2025 Espoir Kakesa. Tous droits réservés.
+              © {currentYear} Espoir Kakesa. Tous droits réservés.
             </span>
           </div>
 
