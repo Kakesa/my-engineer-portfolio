@@ -80,9 +80,17 @@ const HeroSection = () => {
               <div className="w-4 h-4 rounded-full bg-primary animate-ripple" />
             </div>
             {/* Decorative ring */}
-            {!reduced && (
-              <div className="absolute -inset-8 border-2 border-dashed border-primary/10 rounded-full animate-spin-slow" />
-            )}
+            <div className="absolute -inset-8 border-2 border-dashed border-primary/10 rounded-full animate-spin-slow" />
+            {/* Orbiting elements around the photo - always visible */}
+            <div className="absolute inset-0 pointer-events-none animate-orbit" style={{ animationDuration: '25s' }}>
+              <div className="absolute -top-2 left-1/2 w-2 h-2 rounded-full bg-primary/60" />
+            </div>
+            <div className="absolute inset-0 pointer-events-none animate-orbit" style={{ animationDuration: '18s', animationDirection: 'reverse' }}>
+              <div className="absolute top-1/2 -right-2 w-3 h-3 rounded-full bg-accent/50" />
+            </div>
+            <div className="absolute inset-0 pointer-events-none animate-orbit" style={{ animationDuration: '30s' }}>
+              <div className="absolute -bottom-2 left-1/2 w-1.5 h-1.5 rounded-full bg-primary/70" />
+            </div>
           </div>
 
           {/* Content */}
