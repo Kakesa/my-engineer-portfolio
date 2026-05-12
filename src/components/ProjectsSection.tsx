@@ -5,18 +5,18 @@ import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
 import acadexImg from "@/assets/projects/acadex.webp";
 import hkEventsImg from "@/assets/projects/hk-events.webp";
-import xCloneImg from "@/assets/projects/x-clone.webp";
+import xCloneImg from "@/assets/projects/x-clone.png";
 import kinEventsImg from "@/assets/projects/kin-events.webp";
 import mafralandImg from "@/assets/projects/mafraland.webp";
 import maranataImg from "@/assets/projects/maranata.webp";
 import careerstartImg from "@/assets/projects/careerstart.webp";
-import bisengoImg from "@/assets/projects/bisengo.webp";
+import bisengoImg from "@/assets/projects/bisengo.png";
 
 const projects = [
   {
     title: "Acadex",
     description: "Plateforme complète de gestion d'établissement scolaire. Gérez facilement les élèves, professeurs, parents et personnel. Administrez les cours, les présences, les bulletins et bien plus en un seul endroit.",
-    technologies: ["React", "Tailwind CSS", "Node.js", "PostgreSQL", "TypeScript"],
+    technologies: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "TypeScript"],
     liveUrl: "https://acadex-demo.example.com",
     githubUrl: "https://github.com/espoir-kakesa/acadex",
     image: acadexImg
@@ -32,23 +32,23 @@ const projects = [
   {
     title: "X Clone",
     description: "Clone de la plateforme de réseautage social X (anciennement Twitter). Partagez vos pensées, interagissez avec d'autres utilisateurs.",
-    technologies: ["React", "Vite", "Firebase", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://x-clone-demo.example.com",
+    technologies: ["Tailwind CSS", "AdonisJS", "MySQL", "HTML", "CSS"],
+    liveUrl: "https://clounage-x.onrender.com/",
     githubUrl: "https://github.com/espoir-kakesa/x-clone",
     image: xCloneImg
   },
   {
     title: "Kin Events",
     description: "Plateforme de gestion d'événements avec suivi des participants et des confirmations.",
-    technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-    liveUrl: "https://kin-events-demo.example.com",
+    technologies: ["Laravel", "HTML", "CSS", "MySQL", "Tailwind CSS"],
+    liveUrl: "https://kinevents.fr/",
     githubUrl: "https://github.com/espoir-kakesa/kin-events",
     image: kinEventsImg
   },
   {
     title: "Mafraland",
     description: "Projet innovant avec interface moderne et fonctionnalités avancées.",
-    technologies: ["React", "Tailwind CSS", "Node.js"],
+    technologies: ["React", "Tailwind CSS", "TypeScript"],
     liveUrl: "https://mafraland-demo.example.com",
     githubUrl: "https://github.com/espoir-kakesa/mafraland",
     image: mafralandImg
@@ -64,7 +64,7 @@ const projects = [
   {
     title: "CareerStart",
     description: "Plateforme d'aide à l'insertion professionnelle et développement de carrière.",
-    technologies: ["React", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    technologies: ["Tailwind CSS", "Laravel", "MySQL", "HTML", "CSS"],
     liveUrl: "https://careerstart-demo.example.com",
     githubUrl: "https://github.com/espoir-kakesa/careerstart",
     image: careerstartImg
@@ -72,7 +72,7 @@ const projects = [
   {
     title: "Bisengo",
     description: "Site web pour l'ONG Bisengo. Présentation des missions humanitaires, collecte de dons et sensibilisation communautaire en Afrique.",
-    technologies: ["React", "Tailwind CSS", "Node.js", "TypeScript"],
+    technologies: ["React", "Tailwind CSS", "TypeScript"],
     liveUrl: "https://bisengo-ong.example.com",
     githubUrl: "https://github.com/espoir-kakesa/bisengo",
     image: bisengoImg
