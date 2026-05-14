@@ -49,7 +49,7 @@ const projects = [
     title: "Mafraland",
     description: "Projet innovant avec interface moderne et fonctionnalités avancées.",
     technologies: ["React", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://mafraland-demo.example.com",
+    liveUrl: "https://mafralandapp.web.app/",
     githubUrl: "https://github.com/espoir-kakesa/mafraland",
     image: mafralandImg
   },
