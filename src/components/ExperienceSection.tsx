@@ -30,7 +30,7 @@ const experiences = [
     title: "Développeur Back-end",
     company: "LGIC-Tech Sarlu",
     location: "Matadi, RDC",
-    period: "Juillet 2025 - Présent",
+    period: "Juillet 2025 - Nov. 2025",
     current: true,
     tasks: [
       "Concevoir et maintenir des API robustes et évolutives avec Node.js et PHP",

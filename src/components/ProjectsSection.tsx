@@ -8,7 +8,7 @@ import hkEventsImg from "@/assets/projects/hk-events.webp";
 import xCloneImg from "@/assets/projects/x-clone.png";
 import kinEventsImg from "@/assets/projects/kin-events.webp";
 import mafralandImg from "@/assets/projects/mafraland.webp";
-import maranataImg from "@/assets/projects/maranata.webp";
+import maranataImg from "@/assets/projects/image.png";
 import careerstartImg from "@/assets/projects/careerstart.webp";
 import bisengoImg from "@/assets/projects/bisengo.png";
 
@@ -54,10 +54,10 @@ const projects = [
     image: mafralandImg
   },
   {
-    title: "Maranata",
-    description: "Application web complète avec gestion de contenu et interface intuitive.",
+    title: "OMNIS faith",
+    description: "Site web et Application web complète avec gestion de contenu et interface intuitive.",
     technologies: ["React", "TypeScript", "Tailwind CSS"],
-    liveUrl: "https://maranata-demo.example.com",
+    liveUrl: "https://omis-fnith.web.app/",
     githubUrl: "https://github.com/espoir-kakesa/maranata",
     image: maranataImg
   },

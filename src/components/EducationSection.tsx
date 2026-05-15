@@ -3,21 +3,22 @@ import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 const education = [
   {
-    title: "Formation Développeur Full Stack",
-    institution: "Kadea Academy",
-    location: "Kinshasa",
-    period: "Depuis Janvier 2025",
-    type: "Certification Simplon Bac + 2",
-    current: true,
-  },
-  {
     title: "React - Développement Front-End",
     institution: "Coursera",
     location: "En ligne",
-    period: "Depuis 2026",
+    period: "Depuis 2026 - Présent",
     type: "Certification en Ligne",
     current: true,
   },
+  {
+    title: "Formation Développeur Full Stack",
+    institution: "Kadea Academy",
+    location: "Kinshasa",
+    period: "Depuis Janvier 2025 - Mars 2026",
+    type: "Certification Simplon Bac + 2",
+    current: true,
+  },
+  
   {
     title: "Formation Développeur Web Full Stack",
     institution: "Mudey",
