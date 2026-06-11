@@ -25,7 +25,7 @@ const projects = [
     title: "HK Events",
     description: "Plateforme de gestion d'événements et suivi des invités. Créez des événements, gérez les invitations, suivez les confirmations et les déclinaisons.",
     technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
-    liveUrl: "https://hk-events-demo.example.com",
+    liveUrl: "https://hkeventscd.com",
     githubUrl: "https://github.com/espoir-kakesa/hk-events",
     image: hkEventsImg
   },
@@ -73,7 +73,7 @@ const projects = [
     title: "Bisengo",
     description: "Site web pour l'ONG Bisengo. Présentation des missions humanitaires, collecte de dons et sensibilisation communautaire en Afrique.",
     technologies: ["React", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://bisengo-ong.example.com",
+    liveUrl: "https://esengofoundation.vercel.app",
     githubUrl: "https://github.com/espoir-kakesa/bisengo",
     image: bisengoImg
   }
