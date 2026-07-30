@@ -26,9 +26,9 @@ const skillCategories = [
 ];
 
 const stats = [
-  { value: 8, suffix: "+", label: "Projets réalisés" },
+  { value: 10, suffix: "+", label: "Projets réalisés" },
   { value: 15, suffix: "+", label: "Technologies maîtrisées" },
-  { value: 3, suffix: "+", label: "Ans d'expérience" },
+  { value: 5, suffix: "+", label: "Ans d'expérience" },
 ];
 
 const SkillsSection = () => {

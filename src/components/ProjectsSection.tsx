@@ -1,8 +1,15 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+} from "@/components/ui/pagination";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
-import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { useEffect, useState } from "react";
 import acadexImg from "@/assets/projects/acadex.webp";
 import hkEventsImg from "@/assets/projects/hk-events.webp";
 import xCloneImg from "@/assets/projects/x-clone.png";
@@ -11,8 +18,26 @@ import mafralandImg from "@/assets/projects/mafraland.webp";
 import maranataImg from "@/assets/projects/image.png";
 import careerstartImg from "@/assets/projects/careerstart.webp";
 import bisengoImg from "@/assets/projects/bisengo.png";
+import banyOfficialImg from "@/assets/projects/bany-official.png";
+import yoloConciergeImg from "@/assets/projects/yolo-concierge.png";
 
 const projects = [
+  {
+    title: "Bany Official",
+    description: "Site officiel de Bany Talks — podcast et plateforme média dédiés à l'entrepreneuriat, l'investissement et la stratégie en RDC et en Afrique.",
+    technologies: ["MongoDB", "Express", "React", "Node.js", "Tailwind CSS"],
+    liveUrl: "https://banyofficial.com/",
+    githubUrl: "https://github.com/espoir-kakesa",
+    image: banyOfficialImg
+  },
+  {
+    title: "YOLO Le Concierge",
+    description: "Plateforme de conciergerie multiservices premium à Kinshasa : location de véhicules, déménagement assisté et services sur mesure 24/7.",
+    technologies: ["MongoDB", "Express", "React", "Node.js", "Tailwind CSS"],
+    liveUrl: "https://yololeconcierge.com/",
+    githubUrl: "https://github.com/espoir-kakesa",
+    image: yoloConciergeImg
+  },
   {
     title: "Acadex",
     description: "Plateforme complète de gestion d'établissement scolaire. Gérez facilement les élèves, professeurs, parents et personnel. Administrez les cours, les présences, les bulletins et bien plus en un seul endroit.",
@@ -140,8 +165,18 @@ const ProjectCard = ({ project, index, isVisible, staggerDelay }: {
 };
 
 const ProjectsSection = () => {
+  const isMobile = useIsMobile();
+  const pageSize = isMobile ? 2 : 3;
+  const totalPages = Math.ceil(projects.length / pageSize);
+  const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    setPage((current) => Math.min(current, Math.max(0, totalPages - 1)));
+  }, [totalPages]);
+
+  const paginatedProjects = projects.slice(page * pageSize, page * pageSize + pageSize);
   const headerReveal = useScrollReveal();
-  const cardsReveal = useStaggerReveal(projects.length);
+  const cardsReveal = useStaggerReveal(pageSize);
 
   return (
     <section id="projects" className="py-20 px-4 bg-secondary/30 relative overflow-hidden">
@@ -162,10 +197,10 @@ const ProjectsSection = () => {
           </p>
         </div>
 
-        <div ref={cardsReveal.ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div ref={cardsReveal.ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {paginatedProjects.map((project, index) => (
             <ProjectCard
-              key={index}
+              key={`${page}-${project.title}`}
               project={project}
               index={index}
               isVisible={cardsReveal.isVisible}
@@ -173,6 +208,51 @@ const ProjectsSection = () => {
             />
           ))}
         </div>
+
+        {totalPages > 1 && (
+          <Pagination className="mt-12">
+            <PaginationContent>
+              <PaginationItem>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Page précédente"
+                  disabled={page === 0}
+                  onClick={() => setPage((p) => Math.max(0, p - 1))}
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+              </PaginationItem>
+
+              {Array.from({ length: totalPages }, (_, i) => (
+                <PaginationItem key={i}>
+                  <PaginationLink
+                    href="#projects"
+                    isActive={page === i}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setPage(i);
+                    }}
+                  >
+                    {i + 1}
+                  </PaginationLink>
+                </PaginationItem>
+              ))}
+
+              <PaginationItem>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Page suivante"
+                  disabled={page >= totalPages - 1}
+                  onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        )}
       </div>
     </section>
   );
