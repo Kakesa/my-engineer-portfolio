@@ -10,7 +10,7 @@ import {
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useEffect, useState } from "react";
-import acadexImg from "@/assets/projects/acadex.webp";
+import acadexImg from "@/assets/projects/acadex.png";
 import hkEventsImg from "@/assets/projects/hk-events.webp";
 import xCloneImg from "@/assets/projects/x-clone.png";
 import kinEventsImg from "@/assets/projects/kin-events.webp";
@@ -39,10 +39,10 @@ const projects = [
     image: yoloConciergeImg
   },
   {
-    title: "Acadex",
+    title: "Acadex CD",
     description: "Plateforme complète de gestion d'établissement scolaire. Gérez facilement les élèves, professeurs, parents et personnel. Administrez les cours, les présences, les bulletins et bien plus en un seul endroit.",
     technologies: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "TypeScript"],
-    liveUrl: "https://acadex-demo.example.com",
+    liveUrl: "https://acadex.cd/",
     githubUrl: "https://github.com/espoir-kakesa/acadex",
     image: acadexImg
   },
