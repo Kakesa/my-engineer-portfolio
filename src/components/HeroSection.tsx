@@ -111,7 +111,7 @@ const HeroSection = () => {
             </h2>
 
             <p className="opacity-0 animate-slide-up stagger-3 text-muted-foreground max-w-xl mb-8 leading-relaxed">
-              Passionné par la création de solutions numériques innovantes, je conçois et développe des applications web performantes et intuitives. Mon expertise couvre l'ensemble du stack technologique, garantissant des expériences utilisateur exceptionnelles.
+              Je transforme vos idées en applications web solides — du front au back, du prototype à la mise en production.
             </p>
 
             {/* Contact Info */}
